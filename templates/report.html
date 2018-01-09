@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Boenmo Sales: Report</title>
+  <meta name="description" content="Boenmo Sales Report">
+  <meta name="author" content="Boenmo Sales">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+  
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}">
+</head>
+<body>
+  <h1>Boenmo Sales : Report</h1>
+  <h3>Report for <i>{{ filename }}</i></h3>
+
+  <!-- 
+    Sales information:
+    
+     - What was bought.
+     - What state it is from.
+     - Image
+     - 
+  -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">ASIN</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in range(0, report_data['asin'] | length) %}
+      <tr>
+        <th scope="col"><a href="https://amazon.com/dp/{{asin}}">{{report_data['product-name'][i]}}</a></th>
+        <th scope="col">{{report_data['asin'][i]}}</th>
+        <th>{{report_data['item-price'][i]}}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>

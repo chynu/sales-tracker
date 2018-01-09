@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Boenmo Sales: Main</title>
+  <meta name="description" content="Boenmo Sales Report">
+  <meta name="author" content="Boenmo Sales">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
+
+
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}">
+</head>
+<body>
+  <h1>Boenmo Sales : Main Page</h1>
+
+  <div class="container pt4 pl4 pr4 pb4">
+    <div class="list-group">
+      {% set i = 1 %}
+      {% for file in files %}
+        {% set file = file | trim %}
+        {% set file_len = file | length %}
+        {% if file_len > 4 and file[0] != "." %}
+          <a href="/report?filename={{file}}" class="list-group-item list-group-item-action">{{i}}. {{ file[0:file|length-4] }}</a>
+          {% set i = i + 1 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
