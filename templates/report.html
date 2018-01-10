@@ -2,9 +2,9 @@
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <title>Boenmo Sales: Report</title>
-  <meta name="description" content="Boenmo Sales Report">
-  <meta name="author" content="Boenmo Sales">
+  <title>{{cname}} Sales: Report</title>
+  <meta name="description" content="{{cname}} Sales Report">
+  <meta name="author" content="{{cname}} Sales">
 
   <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap-theme.min.css')}}">
@@ -16,17 +16,15 @@
   <link rel="icon" type="image/png" href="{{url_for('static', filename='img/favicon.ico')}}">
 </head>
 <body>
-  <h1>Boenmo Sales : Report</h1>
-  <h3>Report for <i>{{ filename }}</i></h3>
-
-  <!-- 
-    Sales information:
-    
-     - What was bought.
-     - What state it is from.
-     - Image
-     - 
-  -->
+  <div class="container-fluid bg-dark pt2 pb2 mb8" id="header">
+    <div class="container pt2 pb2">
+      <br>
+      <h2><a href="/">{{cname}} Sales</a> : Report</h2>
+      <p><i>Report for {{ filename }}</i></p>
+      <br>
+    </div>
+  </div>
+  
   <table class="table">
     <thead>
       <tr>
@@ -38,7 +36,7 @@
     <tbody>
       {% for i in range(0, report_data['asin'] | length) %}
       <tr>
-        <th scope="col"><a href="https://amazon.com/dp/{{asin}}">{{report_data['product-name'][i]}}</a></th>
+        <th scope="col"><a href="https://amazon.com/dp/{{report_data['asin'][i]}}" target="_blank">{{report_data['product-name'][i]}}</a></th>
         <th scope="col">{{report_data['asin'][i]}}</th>
         <th>{{report_data['item-price'][i]}}</th>
       </tr>

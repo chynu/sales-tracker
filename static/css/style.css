@@ -3,6 +3,14 @@ html,body {
 	padding:0;
 }
 
-body {
-	padding:30px;
+#header, #header a {
+	color:white;
+}
+
+#header a {
+	text-decoration:none;
+}
+
+#header a:hover {
+	color:#D4D4D4;
 }
