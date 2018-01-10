@@ -1,2 +1,5 @@
-# Keep data private
+# Amazon Seller Data
 data/*
+
+# User data
+metadata.txt
